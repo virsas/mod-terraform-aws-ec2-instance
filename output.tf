@@ -13,6 +13,9 @@ output "private_dns" {
 output "public_dns" {
   value = try(aws_instance.vss.public_dns, "")
 }
+output "public_ip" {
+  value = try(aws_instance.vss.public_ip, "")
+}
 output "private_ip" {
   value = try(aws_instance.vss.private_ip, "")
 }
