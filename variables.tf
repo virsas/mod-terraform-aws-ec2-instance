@@ -84,7 +84,7 @@ variable "volume_type" {
   default     = "gp3"
 
   validation {
-    condition           = contains(["standard", "gp2", "gp3", "io1", "io2", "sc1", "st1"], var.type)
+    condition           = contains(["standard", "gp2", "gp3", "io1", "io2", "sc1", "st1"], var.volume_type)
     error_message       = "Expected values: standard, gp2, gp3, io1, io2, sc1, st1."
   }
 }
@@ -120,12 +120,12 @@ variable "throughput" {
 }
 variable "ebs_block_devices" {
   description = "List of EBSes attached to this instance. Value should be [{device_name = 'xvdf', volume_size = 5, volume_type = 'gp3', iops = 300, througput = 125, encrypted = true, kms_key_id = 'own_kms_id', delete_on_termination = false}]. The only required value in the object is the device_name."
-  type        = list(object)
+  type        = list(any)
   default     = []
 }
 variable "network_interfaces" {
   description = "List of ENIs attached to this instance. Value should be [{id = eni_id, index = 0, delete = false}]. The only required value in the object is the id."
-  type        = list(object)
+  type        = list(any)
   default     = []
 }
 variable "credits" {
