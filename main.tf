@@ -76,10 +76,7 @@ resource "aws_instance" "vss" {
   }
 
   user_data_replace_on_change = var.user_data_replace_on_change
-  user_data = templatefile("${var.script_path}/${var.name}.sh", {
-    region = "${var.region}",
-    name = "${var.name}"
-  })
+  user_data = templatefile("${var.script_path}/${var.name}.sh", {})
 
   tags = {
 		Name = var.name
