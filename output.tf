@@ -1,3 +1,6 @@
+output "id" {
+  value = try(aws_instance.vss.id, "")
+}
 output "arn" {
   value = try(aws_instance.vss.arn, "")
 }

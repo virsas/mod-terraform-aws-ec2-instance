@@ -60,6 +60,7 @@ module "ec2_instance" {
 
 ## Outputs
 
+- id
 - arn
 - instance_state
 - primary_network_interface_id
